@@ -1,0 +1,14 @@
+name: mlflow_eval_detection
+
+conda_env: conda.yaml
+
+entry_points:
+  main:
+    parameters:
+      data: {type: string, default: /u01/data/bdd100k/det/bdd100k.yaml}
+      batch-size: {type: int, default: 64}
+      epochs: {type: int, default: 1}
+    command: |
+          python val.py \
+            --epochs {epochs} \
+            --data {data}
